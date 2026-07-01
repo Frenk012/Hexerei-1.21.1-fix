@@ -58,7 +58,7 @@ public class ClientEvents {
     @SubscribeEvent
     public static void clientTickEvent(ClientTickEvent.Pre event) {
         clientTicks += 1;
-		if (ClientProxy.fontList.isEmpty()) {
+		if (ClientProxy.fontList.isEmpty() && HexConfig.CLIENT_CONFIG.isLoaded()) {
 			List<? extends String> fonts = HexConfig.FONT_LIST.get();
 			for (String str : fonts) {
 				if (!ClientProxy.fontList.containsKey(str))
